@@ -125,7 +125,7 @@ namespace final{
         return "Caster";
     }
 
-    void Fighter::launch_attack(Base *target) {
+    inline void Fighter::launch_attack(Base *target) {
         int mult = calc_multiplier_for_fighter(target);
         int damage_to_target;
         if (!target->defensive) {
@@ -156,7 +156,7 @@ namespace final{
         }
     }
 
-    void Protector::launch_attack(Base *target) {
+    inline void Protector::launch_attack(Base *target) {
         int mult = calc_multiplier_for_protector(target);
         int damage_to_target;
         if (!target->defensive) {
@@ -186,7 +186,7 @@ namespace final{
         }
     }
 
-    void Caster::launch_attack(Base *target) {
+    inline void Caster::launch_attack(Base *target) {
         int mult = calc_multiplier_for_caster(target);
         int damage_to_target;
         if (!target->defensive) {
@@ -210,8 +210,5 @@ namespace final{
             std::cout << "Caster " << name << " is killed\n";
         }
     }
-    
-    // define static member
-    int Base::aliveNumber = 0;
 }
 #endif //ROLE_HPP
